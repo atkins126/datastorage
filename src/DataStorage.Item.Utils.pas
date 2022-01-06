@@ -1,3 +1,10 @@
+{
+  *************************************
+  Created by Danilo Lucas
+  Github - https://github.com/dliocode
+  *************************************
+}
+
 unit DataStorage.Item.Utils;
 
 interface
@@ -63,14 +70,12 @@ end;
 function TDataStorageItemUtils.Clear: IDataStorageItemUtils;
 begin
   Result := Self;
-
   FDictItem.Clear;
 end;
 
 function TDataStorageItemUtils.Remove(const AItem: string): IDataStorageItemUtils;
 begin
   Result := Self;
-
   FDictItem.Remove(AItem);
 end;
 

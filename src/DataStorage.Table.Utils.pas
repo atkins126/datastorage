@@ -1,3 +1,10 @@
+{
+  *************************************
+  Created by Danilo Lucas
+  Github - https://github.com/dliocode
+  *************************************
+}
+
 unit DataStorage.Table.Utils;
 
 interface
@@ -75,7 +82,6 @@ end;
 function TDataStorageTableUtils.Remove(const ATable: string): IDataStorageTableUtils;
 begin
   Result := Self;
-
   FDictTable.Remove(ATable);
 end;
 

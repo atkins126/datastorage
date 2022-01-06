@@ -1,3 +1,10 @@
+{
+  *************************************
+  Created by Danilo Lucas
+  Github - https://github.com/dliocode
+  *************************************
+}
+
 unit DataStorage.Data;
 
 interface
@@ -35,7 +42,7 @@ end;
 
 destructor TDataStorageData.Destroy;
 begin
-  FUtils.DisposeOf;
+  FUtils.Free;
   inherited;
 end;
 
@@ -57,7 +64,7 @@ begin
 
   if not(LJV is TJSONObject) then
   begin
-    LJV.DisposeOf;
+    LJV.Free;
     Exit;
   end;
 
@@ -65,7 +72,7 @@ begin
   try
     FUtils.TJSONObjectToDataBase(FDataBase, LJO);
   finally
-    LJO.DisposeOf;
+    LJO.Free;
   end;
 end;
 
@@ -108,7 +115,7 @@ begin
 
     Result := LJO.ToString;
   finally
-    LJO.DisposeOf;
+    LJO.Free;
   end;
 end;
 
@@ -119,7 +126,7 @@ begin
   Result := Self;
 
   if Trim(AFileName).IsEmpty then
-    raise Exception.Create('Filename is empty!');
+    raise EDataStorageException.Create('Filename is empty!');
 
   if not TFile.Exists(AFileName) then
     Exit;
@@ -144,7 +151,7 @@ begin
   Result := Self;
 
   if Trim(AFileName).IsEmpty then
-    raise Exception.Create('Filename is empty!');
+    raise EDataStorageException.Create('Filename is empty!');
 
   if TFile.Exists(AFileName) then
     TFile.Delete(AFileName);
@@ -162,7 +169,7 @@ begin
   try
     LStringStream.SaveToFile(AFileName);
   finally
-    LStringStream.DisposeOf;
+    LStringStream.Free;
   end;
 end;
 

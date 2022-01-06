@@ -1,3 +1,10 @@
+{
+  *************************************
+  Created by Danilo Lucas
+  Github - https://github.com/dliocode
+  *************************************
+}
+
 unit DataStorage.DataBase;
 
 interface
@@ -34,7 +41,7 @@ end;
 
 destructor TDataStorageDataBase.Destroy;
 begin
-  FDict.DisposeOf;
+  FDict.Free;
   inherited;
 end;
 

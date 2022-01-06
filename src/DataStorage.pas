@@ -1,3 +1,10 @@
+{
+  *************************************
+  Created by Danilo Lucas
+  Github - https://github.com/dliocode
+  *************************************
+}
+
 unit DataStorage;
 
 interface
@@ -7,7 +14,6 @@ uses
 
 type
   TValue = DataStorage.Intf.TValue;
-
   IDataStorage = DataStorage.Intf.IDataStorage;
 
   TDataStorage = class(TInterfacedObject, IDataStorage)
@@ -65,22 +71,22 @@ end;
 
 function TDataStorage.Table(const ATable: string): IDataStorageItem;
 begin
-  Result := DataBase('Datastorage_default').Table(ATable);
+  Result := DataBase('datastorage_default').Table(ATable);
 end;
 
 function TDataStorage.Table: IDataStorageTableUtils;
 begin
-  Result := DataBase('Datastorage_default').Table;
+  Result := DataBase('datastorage_default').Table;
 end;
 
 function TDataStorage.Item(const AItem: string): IDataStorageValue;
 begin
-  Result := Table('Datastorage_default').Item(AItem);
+  Result := Table('datastorage_default').Item(AItem);
 end;
 
 function TDataStorage.Item: IDataStorageItemUtils;
 begin
-  Result := Table('Datastorage_default').Item;
+  Result := Table('datastorage_default').Item;
 end;
 
 function TDataStorage.Data: IDataStorageData;

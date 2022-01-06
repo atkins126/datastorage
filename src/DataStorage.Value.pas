@@ -1,3 +1,10 @@
+{
+  *************************************
+  Created by Danilo Lucas
+  Github - https://github.com/dliocode
+  *************************************
+}
+
 unit DataStorage.Value;
 
 interface
@@ -68,7 +75,7 @@ begin
     LObject := FValue.AsObject;
     try
       if Assigned(LObject) then
-        LObject.DisposeOf;
+        LObject.Free;
     except
     end;
   end;
